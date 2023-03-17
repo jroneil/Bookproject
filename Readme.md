@@ -84,4 +84,106 @@ The application uses a PostgreSQL database to store book and user data. The data
 
 ## License
 
+Authentication Service: This microservice would handle user authentication and authorization.
+
+Book Service: This microservice would handle all CRUD operations related to books.
+
+Order Service: This microservice would handle orders placed by users for books.
+
+Payment Service: This microservice would handle payment processing for orders placed by users.
+
+Recommendation Service: This microservice would recommend books to users based on their reading history.
+
+Review Service: This microservice would handle book reviews submitted by users.
+
+Search Service: This microservice would handle search requests for books.
+
+User Service: This microservice would handle all CRUD operations related to users.
+
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+Authentication Service:
+Spring Security
+JWT (JSON Web Token)
+Spring Boot
+Book Service:
+Spring Boot
+PostgreSQL
+Hibernate (ORM)
+Spring Data JPA
+Order Service:
+Spring Boot
+PostgreSQL
+Hibernate (ORM)
+Spring Data JPA
+Payment Service:
+Spring Boot
+Stripe API
+Recommendation Service:
+Spring Boot
+PostgreSQL
+Hibernate (ORM)
+Spring Data JPA
+Apache Mahout
+Review Service:
+Spring Boot
+PostgreSQL
+Hibernate (ORM)
+Spring Data JPA
+Search Service:
+Spring Boot
+Elasticsearch
+Spring Data Elasticsearch
+User Service:
+Spring Boot
+PostgreSQL
+Hibernate (ORM)
+Spring Data JPA
+
+
+
+
+- User Service:
+   - User
+   - Role
+   - Permission
+- Book Service:
+   - Book
+   - Author
+   - Publisher
+   - Category
+   - Review
+- Order Service:
+   - Order
+   - OrderItem
+   - Payment
+   - Shipping
+- Inventory Service:
+   - Product
+   -  InventoryItem
+   - Supplier
+- User Service:
+   - User
+   - Role
+   - Permission
+- Book Service:
+   - Book
+   - Author
+   - Publisher
+   - Category
+   - Review
+- Order Service:
+   - Order
+   - OrderItem
+   - Payment
+   - Shipping
+- Inventory Service:
+   - Product
+   - InventoryItem
+   - Supplier
+
+
+
+
+
+Regenerate response
+
