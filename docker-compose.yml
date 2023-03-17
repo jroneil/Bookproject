@@ -1,0 +1,39 @@
+version: "3.9"
+
+services:
+  db:
+    image: postgres
+    restart: always
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: example
+      POSTGRES_DB: bookstore_db
+    volumes:
+      - ./db/create_database.sql:/docker-entrypoint-initdb.d/01_create_database.sql
+      - ./db/create_tables.sql:/docker-entrypoint-initdb.d/02_create_tables.sql
+      - ./db/create_indexes.sql:/docker-entrypoint-initdb.d/03_create_indexes.sql
+      - ./db/create_constraints.sql:/docker-entrypoint-initdb.d/04_create_constraints.sql
+      - ./db/initial_test_data.sql:/docker-entrypoint-initdb.d/05_initial_test_data.sql
+
+  backend:
+    build: ./backend
+    restart: always
+    ports:
+      - "8080:8080"
+    depends_on:
+      - db
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:postgresql://db:5432/bookstore_db
+      SPRING_DATASOURCE_USERNAME: postgres
+      SPRING_DATASOURCE_PASSWORD: example
+      SPRING_JPA_HIBERNATE_DDL_AUTO: update
+
+  frontend:
+    build: ./frontend
+    restart: always
+    ports:
+      - "3000:3000"
+    depends_on:
+      - backend
+    environment:
+      REACT_APP_API_URL: http://backend:8080
